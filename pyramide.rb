@@ -1,30 +1,47 @@
+def nb_etages
 
-puts "Salut, bienvenue dans ma super pyramide, Combien d étages veux-tu "
-print "> "
-number = gets.chomp.to_i
-n = number-1
+	puts "Salut, bienvenue dans ma super pyramide, Combien d étages veux-tu "
+	print "> "
+	number = gets.chomp.to_i
+	return number
+end
 
-Tableau1 = [""]
-Tableau2 = ["#"]
-Tableau3 = [""]
+def half_pyramid (number)
 
-for i in 0 .. n
+	n = number-1
 
-	Tableau2[i+1] = Tableau2[i] + "#"
+	tableau1 = [""]
+	tableau2 = ["#"]
+	tableau3 = [""]
+
+	for i in 0 .. n
+
+		tableau2[i+1] = tableau2[i] + "#"
 	
+	end
+
+	for i in 0 .. n
+		tableau1[i+1] = tableau1[i] + ""
+	end
+
+	while n > 0
+  	tableau1[n-1] = tableau1[n] + " "
+ 	n = n-1 
+	end
+
+	for i in 0 .. number - 1
+
+		tableau3[i] = tableau1[i] + tableau2[i]
+		puts tableau3[i]
+	end
+
 end
 
-for i in 0 .. n
-	Tableau1[i+1] = Tableau1[i] + ""
+def perform
+
+	nb = nb_etages
+	puts nb
+  	half_pyramid (nb)
 end
 
-while n > 0
-  Tableau1[n-1] = Tableau1[n] + " "
-  n = n-1 
-end
-
-for i in 0 .. number - 1
-
-	Tableau3[i] = Tableau1[i] + Tableau2[i]
-	puts Tableau3[i]
-end
+perform
